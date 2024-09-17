@@ -9,6 +9,7 @@ import slide3 from "../../assets/images/slide3.png";
 import slide4 from "../../assets/images/slide4.png";
 import slide5 from "../../assets/images/slide5.png";
 import slide6 from "../../assets/images/slide6.png";
+import Animate from "../../Animation/Animate";
 const Carousel = () => {
   var settings = {
     dots: false,
@@ -17,7 +18,7 @@ const Carousel = () => {
     slidesToShow: 3,
     slidesToScroll: 4,
   };
-//   FOR LOOP PARA DI MAG LABA IMO CODE
+  //   FOR LOOP PARA DI MAG LABA IMO CODE
   const items = [
     {
       title: "Slide 1",
@@ -53,21 +54,21 @@ const Carousel = () => {
 
   return (
     <>
-    
       <div className="slider-container">
         <Slider {...settings}>
           {items.map((item) => (
-            <div className="card">
-              <div className="card-image">
-                <img src={item.image} alt="" />
+            <Animate>
+              <div className="card">
+                <div className="card-image">
+                  <img src={item.image} alt="" />
+                </div>
+                <div className="card-text">
+                  <h2>{item.title}</h2>
+                  <p>{item.body}</p>
+                  <button className="read-more">Read More</button>
+                </div>
               </div>
-              <div className="card-text">
-              <h2>{item.title}</h2>
-              <p>{item.body}</p>
-              <button className="read-more">Read More</button>
-              </div>
-              
-            </div>
+            </Animate>
           ))}
         </Slider>
       </div>
